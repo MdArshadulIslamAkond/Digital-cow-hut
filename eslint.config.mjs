@@ -15,6 +15,8 @@ export default [
       eqeqeq: "off",
       "no-unused-vars": "error",
       "prefer-const": ["error", { ignoreReadBeforeAssign: true }],
+       "jsdoc/require-description": "error",
+      "jsdoc/check-values": "error"
     },
   },
   {
