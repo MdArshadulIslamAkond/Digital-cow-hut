@@ -1,0 +1,136 @@
+{
+  issues: [
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'body', 'buyer' ],
+      message: 'Required'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)],
+  name: 'ZodError',
+  level: 'error',
+  message: 'Error creating user [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "object",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer"\n' +
+    '    ],\n' +
+    '    "message": "Required"\n' +
+    '  }\n' +
+    ']',
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "object",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer"\n' +
+    '    ],\n' +
+    '    "message": "Required"\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:55:31)\n' +
+    '    at ZodObject.parseAsync (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:196:22)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  label: 'right meow!',
+  timestamp: '2025-02-02 13:30:19'
+}
+{
+  issues: [
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'undefined',
+      path: [ 'body', 'buyer', 'income' ],
+      message: 'Income is required'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)],
+  name: 'ZodError',
+  level: 'error',
+  message: 'Error creating user [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "string",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer",\n' +
+    '      "income"\n' +
+    '    ],\n' +
+    '    "message": "Income is required"\n' +
+    '  }\n' +
+    ']',
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "string",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer",\n' +
+    '      "income"\n' +
+    '    ],\n' +
+    '    "message": "Income is required"\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:55:31)\n' +
+    '    at ZodObject.parseAsync (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:196:22)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  label: 'right meow!',
+  timestamp: '2025-02-02 13:33:10'
+}
+{
+  issues: [
+    {
+      code: 'invalid_type',
+      expected: 'string',
+      received: 'undefined',
+      path: [ 'body', 'buyer', 'income' ],
+      message: 'Income is required'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)],
+  name: 'ZodError',
+  level: 'error',
+  message: 'Error creating user [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "string",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer",\n' +
+    '      "income"\n' +
+    '    ],\n' +
+    '    "message": "Income is required"\n' +
+    '  }\n' +
+    ']',
+  stack: 'ZodError: [\n' +
+    '  {\n' +
+    '    "code": "invalid_type",\n' +
+    '    "expected": "string",\n' +
+    '    "received": "undefined",\n' +
+    '    "path": [\n' +
+    '      "body",\n' +
+    '      "buyer",\n' +
+    '      "income"\n' +
+    '    ],\n' +
+    '    "message": "Income is required"\n' +
+    '  }\n' +
+    ']\n' +
+    '    at Object.get error [as error] (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:55:31)\n' +
+    '    at ZodObject.parseAsync (C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\node_modules\\zod\\lib\\types.js:196:22)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  label: 'right meow!',
+  timestamp: '2025-02-02 13:34:11'
+}

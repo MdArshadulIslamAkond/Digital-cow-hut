@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\.58e7988d06907d94c05b1e9be27754dd5f1fdfa2-audit.json",
+    "files": [
+        {
+            "date": 1738473725048,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-02-11-error.log",
+            "hash": "9d4619dde9c7fe3fd1487956a42c19613cb38e0f6d74f2b90f3a9b45fe8d0885"
+        },
+        {
+            "date": 1738476495663,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-02-12-error.log",
+            "hash": "62791b139c320d177eb9d40a3259a60b8d6158dbd0c1690b313d3ac4db7653a5"
+        },
+        {
+            "date": 1738481419884,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-02-13-error.log",
+            "hash": "5b193de14418a82f2cf70b89a5c9ccfca4cbcc1ec6dc5d27f6cba7c85e6a7959"
+        }
+    ],
+    "hashType": "sha256"
+}

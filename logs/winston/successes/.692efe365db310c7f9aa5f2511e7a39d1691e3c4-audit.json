@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\successes\\.692efe365db310c7f9aa5f2511e7a39d1691e3c4-audit.json",
+    "files": [
+        {
+            "date": 1738473725043,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\successes\\2025-02-02-11-success.log",
+            "hash": "48fd9a8458c6bf4861ff72569b8bf908e05d8ef005babc09c508294b945544b1"
+        },
+        {
+            "date": 1738476495652,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\successes\\2025-02-02-12-success.log",
+            "hash": "9ea51b28380ece4fd0f9870349f4bdf85485939cd63f5423575bf5c03291c88e"
+        },
+        {
+            "date": 1738481477536,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\successes\\2025-02-02-13-success.log",
+            "hash": "cd9ef71d4ba5f2c612d4d31e51ceb6caafb426e5bbb794b565e59b2932b542cd"
+        }
+    ],
+    "hashType": "sha256"
+}
