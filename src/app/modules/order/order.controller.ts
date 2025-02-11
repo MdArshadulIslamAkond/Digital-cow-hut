@@ -9,6 +9,9 @@ import sendResponse from '../../../shared/sendResponse'
 // import { CowService } from './cow.service'
 import { IOrder } from './order.interface'
 import { OrderService } from './order.services'
+import { paginationFields } from '../../../constants.ts/pagination'
+import pick from '../../../shared/pick'
+import { JwtPayload } from 'jsonwebtoken'
 
 const createOrder = catchAsync(async (req: Request, res: Response) => {
   const { ...orderData } = req.body
@@ -20,28 +23,31 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
     data: result,
   })
 })
-// const getAllOrder = catchAsync(async (req: Request, res: Response) => {
-//   const filters = pick(req.query, cowFilterableFields)
-//   const paginationOptions = pick(req.query, paginationFields)
-//   const result = await CowService.getAllCow(filters, paginationOptions)
-//   sendResponse<ICow[]>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow are fetched successfully',
-//     meta: result.meta,
-//     data: result.data,
-//   })
-// })
-// const getSingleCow = catchAsync(async (req: Request, res: Response) => {
-//   const { id } = req.params
-//   const result = await CowService.getSingleCow(id)
-//   sendResponse<ICow>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow is fetched successfully',
-//     data: result,
-//   })
-// })
+const getAllOrder = catchAsync(async (req: Request, res: Response) => {
+  // const filters = pick(req.query, cowFilterableFields)
+  const { ...varifiyData } = req.user as JwtPayload
+  const paginationOptions = pick(req.query, paginationFields)
+  const result = await OrderService.getAllOrder(paginationOptions, varifiyData)
+  // const result = await CowService.getAllCow(filters, paginationOptions)
+  sendResponse<IOrder[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order are fetched successfully',
+    meta: result.meta,
+    data: result.data,
+  })
+})
+const getSingleOrder = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params
+  const { ...varifiyData } = req.user as JwtPayload
+  const result = await OrderService.getSingleOrder(id, varifiyData)
+  sendResponse<IOrder>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Cow is fetched successfully',
+    data: result,
+  })
+})
 
 // const getUpdateCow = catchAsync(async (req: Request, res: Response) => {
 //   const { id } = req.params
@@ -54,20 +60,21 @@ const createOrder = catchAsync(async (req: Request, res: Response) => {
 //     data: result,
 //   })
 // })
-// const getDeleteCow = catchAsync(async (req: Request, res: Response) => {
-//   const { id } = req.params
-//   const result = await CowService.getDeleteCow(id)
-//   sendResponse<ICow>(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: 'Cow is deleted successfully',
-//     data: result,
-//   })
-// })
+const getDeleteOrder = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params
+  const { ...varifiyData } = req.user as JwtPayload
+  const result = await OrderService.getDeleteOrder(id, varifiyData)
+  sendResponse<IOrder>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order is deleted successfully',
+    data: result,
+  })
+})
 export const OrderController = {
   createOrder,
-  //   getAllOrder,
-  //   getSingleCow,
-  //   getUpdateCow,
-  //   getDeleteCow,
+  getAllOrder,
+  getSingleOrder,
+  getDeleteOrder,
+  // getUpdateCow,
 }

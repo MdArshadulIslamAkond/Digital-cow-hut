@@ -55,19 +55,37 @@ const getAllBuyer = async (
     data: result,
   }
 }
-const getSingleBuyer = async (id: string): Promise<IBuyer | null> => {
-  const result = await Buyer.findById(id)
-  // .populate('academicFaculty')
-  // .populate('academicDepartment')
-  // .populate('academicSemester')
+const getSingleBuyer = async (
+  id: string,
+  buyerID: string,
+  role: string,
+): Promise<IBuyer | null> => {
+  let result = null
+  if (role === 'admin') {
+    result = await Buyer.findOne({ id })
+  }
+  if (role === 'buyer') {
+    result = await Buyer.findOne({ id, _id: buyerID })
+  }
+  if (!result) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Seller not found!')
+  }
   return result
 }
 const getUpdateBuyer = async (
   id: string,
+  buyerID: string,
+  role: string,
   payload: Partial<IBuyer>,
 ): Promise<IBuyer | null> => {
   // const isExist = await Student.findOne({ _id: id })
-  const isExist = await Buyer.findOne({ id })
+  let isExist = null
+  if (role === 'admin') {
+    isExist = await Buyer.findOne({ id })
+  }
+  if (role === 'buyer') {
+    isExist = await Buyer.findOne({ id, _id: buyerID })
+  }
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Buyer not found !')
   }
@@ -94,17 +112,32 @@ const getUpdateBuyer = async (
   )
   return result
 }
-const getDeleteBuyer = async (id: string): Promise<IBuyer | null> => {
+const getDeleteBuyer = async (
+  id: string,
+  buyerID: string,
+  role: string,
+): Promise<IBuyer | null> => {
   const session = await mongoose.startSession()
   let result = null
+  let deleteBuyer = null
   try {
     session.startTransaction()
-    const deleteBuyer = await Buyer.findOneAndDelete(
-      { id },
-      {
-        session,
-      },
-    )
+    if (role === 'admin') {
+      deleteBuyer = await Buyer.findOneAndDelete(
+        { id },
+        {
+          session,
+        },
+      )
+    }
+    if (role === 'buyer') {
+      deleteBuyer = await Buyer.findOneAndDelete(
+        { id, _id: buyerID },
+        {
+          session,
+        },
+      )
+    }
     if (!deleteBuyer) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Buyer not found !')
     }

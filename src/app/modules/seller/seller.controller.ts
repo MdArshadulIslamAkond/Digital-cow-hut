@@ -7,6 +7,7 @@ import { sellerFilterableFields } from './seller.constants'
 import { paginationFields } from '../../../constants.ts/pagination'
 import { ISeller } from './seller.interface'
 import { SellerService } from './seller.service'
+import { JwtPayload } from 'jsonwebtoken'
 
 const getAllSeller = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, sellerFilterableFields)
@@ -23,7 +24,8 @@ const getAllSeller = catchAsync(async (req: Request, res: Response) => {
 })
 const getSingleSeller = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params
-  const result = await SellerService.getSingleSeller(id)
+  const { _id: sellerID, role } = req.user as JwtPayload
+  const result = await SellerService.getSingleSeller(id, sellerID, role)
   sendResponse<ISeller>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -33,8 +35,14 @@ const getSingleSeller = catchAsync(async (req: Request, res: Response) => {
 })
 const getUpdateSeller = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params
+  const { _id: sellerID, role } = req.user as JwtPayload
   const updatedData = req.body
-  const result = await SellerService.getUpdateSeller(id, updatedData)
+  const result = await SellerService.getUpdateSeller(
+    id,
+    sellerID,
+    role,
+    updatedData,
+  )
   sendResponse<ISeller>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -44,7 +52,8 @@ const getUpdateSeller = catchAsync(async (req: Request, res: Response) => {
 })
 const getDeleteSeller = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params
-  const result = await SellerService.getDeleteSeller(id)
+  const { _id: sellerID, role } = req.user as JwtPayload
+  const result = await SellerService.getDeleteSeller(id, sellerID, role)
   sendResponse<ISeller>(res, {
     statusCode: httpStatus.OK,
     success: true,

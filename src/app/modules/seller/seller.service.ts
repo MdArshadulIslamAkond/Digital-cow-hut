@@ -9,6 +9,7 @@ import { sellerSearchableFields } from './seller.constants'
 import { paginationHelpers } from '../../../helpers/paginationHelpers'
 import { Seller } from './seller.model'
 import ApiError from '../../../error/ApiError'
+import { Cow } from '../cow/cow.model'
 
 const getAllSeller = async (
   filters: ISellerFilters,
@@ -56,22 +57,46 @@ const getAllSeller = async (
     data: result,
   }
 }
-const getSingleSeller = async (id: string): Promise<ISeller | null> => {
-  const result = await Seller.findById(id)
-  // .populate('academicFaculty')
-  // .populate('academicDepartment')
-  // .populate('academicSemester')
+const getSingleSeller = async (
+  id: string,
+  sellerID: string,
+  role: string,
+): Promise<ISeller | null> => {
+  let result = null
+  console.log('service:', role)
+  if (role === 'admin') {
+    result = await Seller.findOne({ id })
+  }
+  if (role === 'seller') {
+    result = await Seller.findOne({
+      id,
+      _id: new mongoose.Types.ObjectId(sellerID),
+    })
+    console.log('service:', result)
+  }
+  if (!result) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Seller not found!')
+  }
   return result
 }
 const getUpdateSeller = async (
   id: string,
+  sellerID: string,
+  role: string,
   payload: Partial<ISeller>,
 ): Promise<ISeller | null> => {
   // const isExist = await Student.findOne({ _id: id })
-  const isExist = await Seller.findOne({ id })
+  let isExist = null
+  if (role === 'admin') {
+    isExist = await Seller.findOne({ id })
+  }
+  if (role === 'seller') {
+    isExist = await Seller.findOne({ id: id, _id: sellerID })
+  }
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Seller not found !')
   }
+
   const { name, ...sellerData } = payload
   const updatedSellerData: Partial<ISeller> & Record<string, unknown> = {
     ...sellerData,
@@ -95,17 +120,32 @@ const getUpdateSeller = async (
   )
   return result
 }
-const getDeleteSeller = async (id: string): Promise<ISeller | null> => {
+const getDeleteSeller = async (
+  id: string,
+  sellerID: string,
+  role: string,
+): Promise<ISeller | null> => {
   const session = await mongoose.startSession()
   let result = null
+  let deleteSeller = null
   try {
     session.startTransaction()
-    const deleteSeller = await Seller.findOneAndDelete(
-      { id },
-      {
-        session,
-      },
-    )
+    if (role === 'admin') {
+      deleteSeller = await Seller.findOneAndDelete(
+        { id },
+        {
+          session,
+        },
+      )
+    }
+    if (role === 'seller') {
+      deleteSeller = await Seller.findOneAndDelete(
+        { id, _id: sellerID },
+        {
+          session,
+        },
+      )
+    }
     if (!deleteSeller) {
       throw new ApiError(httpStatus.NOT_FOUND, 'Seller not found !')
     }
@@ -118,6 +158,17 @@ const getDeleteSeller = async (id: string): Promise<ISeller | null> => {
     if (!deleteUser) {
       throw new ApiError(httpStatus.NOT_FOUND, 'User not found !')
     }
+    const sellCow = await Cow.find({ seller: sellerID })
+    if (sellCow.length > 0) {
+      const deleteCow = await Cow.deleteMany({ seller: sellerID }, { session })
+      if (deleteCow.deletedCount === 0) {
+        throw new ApiError(
+          httpStatus.INTERNAL_SERVER_ERROR,
+          'Failed to delete cows',
+        )
+      }
+    }
+
     result = deleteSeller
     await session.commitTransaction()
     session.endSession()

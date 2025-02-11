@@ -4,6 +4,8 @@ import { SellerRoutes } from '../modules/seller/seller.route'
 import { BuyerRoutes } from '../modules/buyer/buyer.route'
 import { orderRoutes } from '../modules/order/order.routers'
 import { CowRoutes } from '../modules/cow/cow.routers'
+import { AdminRoutes } from '../modules/admins/admins.routes'
+import { AuthRoutes } from '../modules/auth/auth.routes'
 const router = express.Router()
 const moduleRoutes = [
   {
@@ -25,6 +27,14 @@ const moduleRoutes = [
   {
     path: '/order',
     route: orderRoutes,
+  },
+  {
+    path: '/admin',
+    route: AdminRoutes,
+  },
+  {
+    path: '/auth',
+    route: AuthRoutes,
   },
 ]
 

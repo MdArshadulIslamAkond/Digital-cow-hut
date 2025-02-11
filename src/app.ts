@@ -3,12 +3,14 @@ import cors from 'cors'
 import httpStatus from 'http-status'
 import globalErrorHandler from './app/middleware/globalErrorHandler'
 import router from './app/routes'
+import cookieParser from 'cookie-parser'
 const app: Application = express()
 app.use(cors())
 
 //parsers
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 // //Testing
 // app.get('/', (req: Request, res: Response) => {

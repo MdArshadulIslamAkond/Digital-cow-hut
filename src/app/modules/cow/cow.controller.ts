@@ -7,10 +7,12 @@ import { ICow } from './cow.interface'
 import { cowFilterableFields } from './cow.constant'
 import { paginationFields } from '../../../constants.ts/pagination'
 import { CowService } from './cow.service'
+import { JwtPayload } from 'jsonwebtoken'
 
 const createCow = catchAsync(async (req: Request, res: Response) => {
   const { ...cowData } = req.body
-  const result = await CowService.createCow(cowData)
+  const { _id: sellerID } = req.user as JwtPayload
+  const result = await CowService.createCow(cowData, sellerID)
   sendResponse<ICow>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -44,7 +46,8 @@ const getSingleCow = catchAsync(async (req: Request, res: Response) => {
 const getUpdateCow = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params
   const { ...cowData } = req.body
-  const result = await CowService.getUpdateCow(id, cowData)
+  const { _id: sellerID } = req.user as JwtPayload
+  const result = await CowService.getUpdateCow(id, sellerID, cowData)
   sendResponse<ICow>(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -54,7 +57,8 @@ const getUpdateCow = catchAsync(async (req: Request, res: Response) => {
 })
 const getDeleteCow = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params
-  const result = await CowService.getDeleteCow(id)
+  const { _id: sellerID } = req.user as JwtPayload
+  const result = await CowService.getDeleteCow(id, sellerID)
   sendResponse<ICow>(res, {
     statusCode: httpStatus.OK,
     success: true,

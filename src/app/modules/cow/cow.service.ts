@@ -1,4 +1,4 @@
-import { SortOrder } from 'mongoose'
+import mongoose, { SortOrder } from 'mongoose'
 import { IGenericResponse } from '../../../interfaces/common'
 import { IPaginationOptions } from '../../../interfaces/pagination'
 import httpStatus from 'http-status'
@@ -8,8 +8,14 @@ import { cowSearchableFields } from './cow.constant'
 import ApiError from '../../../error/ApiError'
 import { paginationHelpers } from '../../../helpers/paginationHelpers'
 
-const createCow = async (payload: ICow): Promise<ICow | null> => {
-  const result = (await Cow.create(payload)).populate('seller')
+const createCow = async (
+  payload: ICow,
+  sellerID: mongoose.Types.ObjectId,
+): Promise<ICow | null> => {
+  let result = null
+  if (sellerID === payload.seller) {
+    result = (await Cow.create(payload)).populate('seller')
+  }
   if (!result) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Could not create Cow!')
   }
@@ -82,19 +88,42 @@ const getAllCow = async (
 }
 const getSingleCow = async (id: string): Promise<ICow | null> => {
   const result = await Cow.findById(id).populate('seller')
+  if (!result) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Cow not found!')
+  }
   return result
 }
 const getUpdateCow = async (
   id: string,
+  sellerID: string,
   payload: Partial<ICow>,
 ): Promise<ICow | null> => {
-  const result = await Cow.findOneAndUpdate({ _id: id }, payload, {
-    new: true,
-  }).populate('seller')
+  const result = await Cow.findOneAndUpdate(
+    { _id: id, seller: sellerID },
+    payload,
+    {
+      new: true,
+    },
+  ).populate('seller')
+  if (!result) {
+    throw new ApiError(
+      httpStatus.FORBIDDEN,
+      'Not authorized to update this cow!',
+    )
+  }
   return result
 }
-const getDeleteCow = async (id: string): Promise<ICow | null> => {
-  const result = await Cow.findByIdAndDelete(id)
+const getDeleteCow = async (
+  id: string,
+  sellerID: string,
+): Promise<ICow | null> => {
+  const result = await Cow.findOneAndDelete({ _id: id, seller: sellerID })
+  if (!result) {
+    throw new ApiError(
+      httpStatus.FORBIDDEN,
+      'Not authorized to delete this cow!',
+    )
+  }
   return result
 }
 

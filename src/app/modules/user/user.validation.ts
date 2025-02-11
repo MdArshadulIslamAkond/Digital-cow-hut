@@ -65,7 +65,24 @@ const createBuyerZodSchema = z.object({
   }),
 })
 
+const userUpdateSchema = z.object({
+  id: z.string().optional(),
+  role: z.string().optional(),
+  password: z.string().optional(),
+  name: z
+    .object({
+      firstName: z.string().optional(),
+      lastName: z.string().optional(),
+    })
+    .optional(),
+  phoneNumber: z.string().optional(),
+  address: z.string().optional(),
+  budget: z.string().optional(),
+  income: z.string().optional(),
+  profileImage: z.string().optional(),
+})
 export const userValidation = {
   createSellerZodSchema,
   createBuyerZodSchema,
+  userUpdateSchema,
 }

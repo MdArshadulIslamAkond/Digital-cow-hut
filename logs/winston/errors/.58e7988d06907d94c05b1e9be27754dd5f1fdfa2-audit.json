@@ -19,6 +19,121 @@
             "date": 1738481419884,
             "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-02-13-error.log",
             "hash": "5b193de14418a82f2cf70b89a5c9ccfca4cbcc1ec6dc5d27f6cba7c85e6a7959"
+        },
+        {
+            "date": 1739008714374,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-08-15-error.log",
+            "hash": "d68bedb8fe6cf5d3412382b77845db7bb7cd1b8612d466d28cd38982c9bfe16c"
+        },
+        {
+            "date": 1739008810114,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-08-16-error.log",
+            "hash": "f55b416502ee0940b68090761f4c460f5bac2148aaedeab679998e53a2f35e3e"
+        },
+        {
+            "date": 1739018014780,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-08-18-error.log",
+            "hash": "255aac2dffdbd5376466a2439d9c3be187b57bcf655357fd40c6cd52a3b187cf"
+        },
+        {
+            "date": 1739041973767,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-01-error.log",
+            "hash": "62530960461e3f2afc7f8d7146e4fff878f89e84c34ad3883a205e43f9a8cb72"
+        },
+        {
+            "date": 1739044985405,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-02-error.log",
+            "hash": "1f6f426f4e349270165d217c2ba60035abb3981785dbdf1a9f40c6d313b9cc8b"
+        },
+        {
+            "date": 1739077304414,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-11-error.log",
+            "hash": "cb95cdf4e36deb400ff9dc2082ea38f510d672cf04760414f2c03fdec88ccc62"
+        },
+        {
+            "date": 1739082092800,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-12-error.log",
+            "hash": "85fa6b63b7016625c00529b307355a7d54c4f868f07f4d1b5d0f7d41a2f4355f"
+        },
+        {
+            "date": 1739084430928,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-13-error.log",
+            "hash": "d951a66dbf6956d2456e38b5f92f62aa06b720b621ff504af8c94c4ae9dda10e"
+        },
+        {
+            "date": 1739088286764,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-14-error.log",
+            "hash": "509ebc6696e6f04a546f3d7363ff6d67046b154bcd5b294b4ad16e04cc67312c"
+        },
+        {
+            "date": 1739098411513,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-16-error.log",
+            "hash": "008f45a5fcceeecaa5bcd237b608eeadfa35d25b1265f5e13a21c5cb09fab332"
+        },
+        {
+            "date": 1739099411746,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-09-17-error.log",
+            "hash": "f6ff3c68c06eb9067850ea81ac09b285bb2d2ae7296f967050ccc742fbec2b75"
+        },
+        {
+            "date": 1739125579944,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-00-error.log",
+            "hash": "3a0ff5a051b52974f841565773144ee5bd65137d38ba9c899c9f19e50be7aeee"
+        },
+        {
+            "date": 1739127604547,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-01-error.log",
+            "hash": "eaad77837f23129b1b189f9fd9b8cd7707535c5ff3c8d8a43ba1e11d008d0b9d"
+        },
+        {
+            "date": 1739163596632,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-10-error.log",
+            "hash": "4c216114ca1656d8718c393a7db24ec898cd40599b430830e99850a7dfd2a73b"
+        },
+        {
+            "date": 1739164479928,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-11-error.log",
+            "hash": "53ca0006071576b354407797319635cd6b8a0e96c5e79fc6f993ce451a1401f5"
+        },
+        {
+            "date": 1739167250679,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-12-error.log",
+            "hash": "952613a331c6de5c81df39181afa22a5568350d543f1ccfab589200c74c18173"
+        },
+        {
+            "date": 1739170979257,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-10-13-error.log",
+            "hash": "3fce8a5c638610903a218413aed14a7fdd6fb6e5271e50f890d8b59307ea4e59"
+        },
+        {
+            "date": 1739251855775,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-11-error.log",
+            "hash": "dc0f96777b4006d4e58e281ed9a5ef45169c6f1c7329acbe03bfb9e398acae06"
+        },
+        {
+            "date": 1739254640459,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-12-error.log",
+            "hash": "8c02091af1197324debc2ad6c3f3797e58bbb4aac6b680a6d95db4e94531eb8c"
+        },
+        {
+            "date": 1739258234333,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-13-error.log",
+            "hash": "62a0be66d8925d6b841848a1971c68df8f1f3d571b2a0fd1ac1d87ea539f3306"
+        },
+        {
+            "date": 1739261260358,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-14-error.log",
+            "hash": "1c7e0d7829415d2bb5783a32e308a0c088a86d9faee7f4639f2ca1ea587631f0"
+        },
+        {
+            "date": 1739271344470,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-16-error.log",
+            "hash": "ea4c3fcc7cbfc4f478545b12cac573315debc05717fc9d699167a95557150ce6"
+        },
+        {
+            "date": 1739271924173,
+            "name": "C:\\Projects\\Next level -2\\digital-cow-hut-auth-service\\logs\\winston\\errors\\2025-02-11-17-error.log",
+            "hash": "64efff7f35cfe407c067ab12008d866e0a19048e49ea59f0f5e746f83abf2e25"
         }
     ],
     "hashType": "sha256"
